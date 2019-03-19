@@ -1,0 +1,12 @@
+[Unit]
+Description=pi-temperature
+After=multi-user.target
+ 
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=/opt/pi-temperature/
+ExecStart=/opt/pi-temperature/venv/bin/gunicorn app:app -b 127.0.0.1:11001
+
+[Install]
+WantedBy=multi-user.target
